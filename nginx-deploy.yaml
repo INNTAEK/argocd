@@ -17,3 +17,14 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-loadbalancer
+spec:
+  ports:
+  - name: web
+    port: 80 #LB 와 연결할 포트
+    targetPort: 80
+  type: LoadBalancer
